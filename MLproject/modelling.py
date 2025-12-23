@@ -7,6 +7,7 @@ warnings.simplefilter("ignore")
 from xgboost import XGBClassifier
 import dagshub
 import sys
+import os
 # dagshub.init(repo_owner='dhekmass12', repo_name='modelling_without_tuning', mlflow=True)
 
 # mlflow.set_tracking_uri("http://127.0.0.1:5000/")
