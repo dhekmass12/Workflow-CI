@@ -23,10 +23,8 @@ if __name__ == "__main__":
     X_train_val, X_test, y_train_val, y_test = train_test_split(X, y, test_size=0.1, random_state=42, stratify=y)
     X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.11, random_state=42, stratify=y_train_val)
 
-    n_estimators = int(sys.argv[1]) if len(sys.argv) > 1 else 505
-    max_depth = int(sys.argv[2]) if len(sys.argv) > 2 else 37
-
-    os.environ.pop("MLFLOW_RUN_ID", None)
+    n_estimators = 505
+    max_depth =  37
 
     with mlflow.start_run():
         mlflow.log_artifact("dataset_preprocessing.csv", artifact_path="datasets")
