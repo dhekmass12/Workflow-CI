@@ -25,19 +25,17 @@ if __name__ == "__main__":
 
     n_estimators = 505
     max_depth =  37
-    os.environ.pop("MLFLOW_RUN_ID", None)
-
-    with mlflow.start_run():
-        mlflow.log_artifact("dataset_preprocessing.csv", artifact_path="datasets")
-        mlflow.log_artifact("modelling.py", artifact_path="scripts")
-        model = XGBClassifier(n_estimators=n_estimators, max_depth=max_depth,random_state=42)
-        model.fit(X_train, y_train)
-        accuracy = model.score(X_test, y_test)
-        mlflow.log_metric("accuracy", accuracy)
-        mlflow.log_param("n_estimators", n_estimators)
-        mlflow.log_param("max_depth", max_depth)
-        mlflow.sklearn.log_model(
-            sk_model=model,
-            artifact_path="model",
-            input_example=X_train[0:5]
-            )
+    
+    mlflow.log_artifact("dataset_preprocessing.csv", artifact_path="datasets")
+    mlflow.log_artifact("modelling.py", artifact_path="scripts")
+    model = XGBClassifier(n_estimators=n_estimators, max_depth=max_depth,random_state=42)
+    model.fit(X_train, y_train)
+    accuracy = model.score(X_test, y_test)
+    mlflow.log_metric("accuracy", accuracy)
+    mlflow.log_param("n_estimators", n_estimators)
+    mlflow.log_param("max_depth", max_depth)
+    mlflow.sklearn.log_model(
+        sk_model=model,
+        artifact_path="model",
+        input_example=X_train[0:5]
+        )
