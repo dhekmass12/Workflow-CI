@@ -46,15 +46,14 @@ jobs:
 
       # Run as a mlflow project
       - name: Run mlflow project
-        run: |
-          unset MLFLOW_RUN_ID
+        run: 
+          unset MLFLOW_RUN_ID || true
+          unset MLFLOW_EXPERIMENT_ID || true
           mlflow run MLproject/ --env-manager=local
 
       - name: Get latest MLflow run_id
         run: |
-          echo "Checking contents of MLProject/mlruns/0/"
-          ls -l MLProject/mlruns/0/
-          RUN_ID=$(ls -td MLProject/mlruns/0/*/ | head -n 1 | cut -d'/' -f4)
+          RUN_ID=$(ls -td mlruns/0/*/ | head -n 1 | cut -d'/' -f3)
           echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
           echo "Latest run_id: $RUN_ID"
 
