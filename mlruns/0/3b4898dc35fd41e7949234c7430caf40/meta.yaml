@@ -1,0 +1,15 @@
+artifact_uri: file:///home/dhekmass/Documents/Workflow-CI/mlruns/0/3b4898dc35fd41e7949234c7430caf40/artifacts
+end_time: 1766514146450
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 3b4898dc35fd41e7949234c7430caf40
+run_name: melodic-boar-35
+run_uuid: 3b4898dc35fd41e7949234c7430caf40
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1766514144742
+status: 4
+tags: []
+user_id: dhekmass
