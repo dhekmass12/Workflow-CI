@@ -2,12 +2,11 @@ channels:
 - conda forge
 dependencies:
 - python=3.12.7
-- pip<=24.2
 - pip:
-	- dagshub==0.6.4
-	- mlflow==2.18.0
-	- mlflow_skinny==2.18.0
-	- numpy==2.4.0
-	- pandas==2.3.3
-	- scikit_learn==1.8.0
-	- xgboost==3.1.2
+	- dagshub
+	- mlflow
+	- mlflow_skinny
+	- numpy
+	- pandas
+	- scikit_learn
+	- xgboost
