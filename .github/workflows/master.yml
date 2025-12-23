@@ -49,7 +49,7 @@ jobs:
         run: 
           unset MLFLOW_RUN_ID || true
           unset MLFLOW_EXPERIMENT_ID || true
-          mlflow run MLproject/ --env-manager=local
+          mlflow run MLproject --env-manager=local
 
       - name: Get latest MLflow run_id
         run: |
