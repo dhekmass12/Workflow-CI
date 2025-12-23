@@ -47,7 +47,7 @@ jobs:
       # Run as a mlflow project
       - name: Run mlflow project
         run: |
-          mlflow --port 5000
+          mlflow server --port 5000
           mlflow run MLproject --env-manager=local
 
       # Save models to GitHub Repository
