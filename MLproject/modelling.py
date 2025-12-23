@@ -25,6 +25,7 @@ if __name__ == "__main__":
 
     n_estimators = 505
     max_depth =  37
+    os.environ.pop("MLFLOW_RUN_ID", None)
 
     with mlflow.start_run():
         mlflow.log_artifact("dataset_preprocessing.csv", artifact_path="datasets")
