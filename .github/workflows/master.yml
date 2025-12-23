@@ -44,10 +44,16 @@ jobs:
           pip install scikit_learn
           pip install xgboost
 
+      # Clear MLflow Env Vars
+      - name: Clear MLflow Env Vars
+        run: 
+          unset MLFLOW_RUN_ID || true
+          unset MLFLOW_EXPERIMENT_ID || true
+
       # Run as a mlflow project
       - name: Run mlflow project
         run: 
-          mlflow run MLproject --env-manager=local
+          mlflow run MLproject/ --env-manager=local
 
       - name: Get latest MLflow run_id
         run: |
