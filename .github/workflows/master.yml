@@ -30,12 +30,7 @@ jobs:
       # Check Env Variables
       - name: Check Env
         run: |
-          echo $CSV_URL 
-
-      # Run as a mlflow project
-      - name: Run mlflow project
-        run: |
-          mlflow run MLproject --env-manager=local 
+          echo $CSV_URL  
  
       # Install dependencies
       - name: Install dependencies
@@ -48,6 +43,11 @@ jobs:
           pip install pandas
           pip install scikit_learn
           pip install xgboost
+
+      # Run as a mlflow project
+      - name: Run mlflow project
+        run: |
+          mlflow run MLproject --env-manager=local
 
       # Save models to GitHub Repository
       - name: Save mlruns to repo
