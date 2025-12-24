@@ -9,7 +9,7 @@ on:
       - master
 
 env:
-  CSV_URL: "MLproject/dataset_processing.csv"
+  CSV_URL: "dataset_processing.csv"
  
 jobs:
   build:
@@ -46,19 +46,19 @@ jobs:
 
       # Run as a mlflow project
       - name: Run mlflow project
+        working-directory: MLproject
         run: 
-          mlflow run MLproject/ --env-manager=local
+          mlflow run . --env-manager=local
 
       - name: Get latest MLflow run_id
+        working-directory: MLproject
         run: |
-          ls -l MLproject/mlruns/
-          echo "OKAY"
-          ls -l mlruns/0/
-          RUN_ID=$(ls -td mlruns/0/*/ | head -n 1 | cut -d'/' -f4)
+          RUN_ID=$(ls -td mlruns/0/*/ | head -n 1 | cut -d'/' -f3)
           echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
           echo "Latest run_id: $RUN_ID"
 
       - name: Build Docker Model
+        working-directory: MLproject
         run: |
           mlflow models build-docker --model-uri "runs:/$RUN_ID/model" --name "cc"
 

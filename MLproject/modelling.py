@@ -23,14 +23,18 @@ if __name__ == "__main__":
     X_train_val, X_test, y_train_val, y_test = train_test_split(X, y, test_size=0.1, random_state=42, stratify=y)
     X_train, X_val, y_train, y_val = train_test_split(X_train_val, y_train_val, test_size=0.11, random_state=42, stratify=y_train_val)
 
-    n_estimators = 505
-    max_depth =  37
+    n_estimators = 20
+    max_depth = 10
 
     with mlflow.start_run():
+        mlflow.log_artifact("dataset_preprocessing.csv", artifact_path="datasets")
+        mlflow.log_artifact("modelling.py", artifact_path="scripts")
         model = XGBClassifier(n_estimators=n_estimators, max_depth=max_depth,random_state=42)
         model.fit(X_train, y_train)
         accuracy = model.score(X_test, y_test)
         mlflow.log_metric("accuracy", accuracy)
+        mlflow.log_param("n_estimators", n_estimators)
+        mlflow.log_param("max_depth", max_depth)
         mlflow.sklearn.log_model(
             sk_model=model,
             artifact_path="model",

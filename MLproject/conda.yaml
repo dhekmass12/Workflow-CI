@@ -1,12 +1,14 @@
 channels:
-- conda forge
+  - conda-forge
 dependencies:
-- python=3.12.7
-- pip:
-	- dagshub
-	- mlflow
-	- mlflow_skinny
-	- numpy
-	- pandas
-	- scikit_learn
-	- xgboost
+  - python=3.12.7
+  - pip
+  - pip:
+    - dagshub
+    - mlflow
+    - mlflow_skinny
+    - numpy
+    - pandas
+    - scikit_learn
+    - xgboost
+name: mlflow-env
