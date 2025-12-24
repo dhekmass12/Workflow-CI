@@ -1,0 +1,36 @@
+artifact_path: /home/runner/work/Workflow-CI/Workflow-CI/MLproject/mlruns/0/models/m-ac6e7b598df244bcaae1b4e435007b5f/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+is_signature_from_type_hint: false
+mlflow_version: 3.8.0
+model_id: m-ac6e7b598df244bcaae1b4e435007b5f
+model_size_bytes: 654647
+model_uuid: m-ac6e7b598df244bcaae1b4e435007b5f
+prompts: null
+run_id: 2459435b104b49fbbf3fdcef1235dbae
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "Air temperature", "required": true}, {"type":
+    "double", "name": "Process temperature", "required": true}, {"type": "long", "name":
+    "Rotational speed", "required": true}, {"type": "double", "name": "Torque", "required":
+    true}, {"type": "long", "name": "Tool wear", "required": true}]'
+  outputs: '[{"type": "long", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2025-12-24 12:50:28.756359'
