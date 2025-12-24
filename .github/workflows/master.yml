@@ -50,12 +50,13 @@ jobs:
         run: 
           mlflow run . --env-manager=local
 
-      - name: Get latest MLflow run_id
-        working-directory: MLproject
+      # GET RUN_ID
+      - name: Get Run ID
+        working-directory: MLProject
         run: |
-          RUN_ID=$(ls -td mlruns/0/*/ | head -n 1 | cut -d'/' -f3)
-          echo "RUN_ID=$RUN_ID" >> $GITHUB_ENV
-          echo "Latest run_id: $RUN_ID"
+          RUN_ID=$(ls -td mlruns/0/*/ | grep -Eo '[0-9a-f]{32}' | head -1)
+          echo "run_id=$RUN_ID" >> $GITHUB_ENV
+          echo "Run ID: $RUN_ID"
 
       # Login to Docker Hub
       - name: Log in to Docker Hub
