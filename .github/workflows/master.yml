@@ -84,11 +84,6 @@ jobs:
           mlflow models build-docker \
             -m "mlruns/0/models/${{ env.model_id }}/artifacts" \
             -n "${{ secrets.DOCKER_HUB_USERNAME }}/classification:latest"
-      
-      # Tag the Docker image
-      - name: Tag Docker Image
-        run: |
-          docker tag classification ${{ secrets.DOCKER_HUB_USERNAME }}/classification:latest
 
       # Push Docker image to Docker Hub
       - name: Push Docker Image
