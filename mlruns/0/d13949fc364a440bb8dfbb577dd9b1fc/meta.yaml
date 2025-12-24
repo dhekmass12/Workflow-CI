@@ -1,0 +1,15 @@
+artifact_uri: file:///home/dhekmass/Documents/Workflow-CI/mlruns/0/d13949fc364a440bb8dfbb577dd9b1fc/artifacts
+end_time: 1766554319524
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: d13949fc364a440bb8dfbb577dd9b1fc
+run_name: delightful-ant-292
+run_uuid: d13949fc364a440bb8dfbb577dd9b1fc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1766554298749
+status: 3
+tags: []
+user_id: dhekmass
